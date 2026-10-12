@@ -1,22 +1,6 @@
 'use strict';
 // Scripted "agent": every answer comes from one source note; [n] cites <mark data-n="n"> in that note.
 const kb = {
-  hire: {
-    chip: 'Why should I hire you?',
-    drawer: 'build',
-    keys: ['hire', 'why you', 'why should', 'value', 'convince', 'good at', 'strength', 'different', 'sell'],
-    answer: 'You get one person for the whole path, from the agent or model down to the infrastructure and tests.[1] I have done that on agents, MLOps pipelines and computer vision, through to deployment and CI/CD.[2] Everything I claim on this page links to the note it comes from.[3]',
-    file: 'about.md',
-    source: `Andy Bermond. AI agent & MLOps engineer.
-
-Builds agents, the cloud they run on, and the checks that catch them being wrong.
-<mark data-n="1">Covers the whole path: model or agent, infrastructure, tests.</mark>
-<mark data-n="2">Shipped across agents, MLOps and computer vision, through deployment and CI/CD.</mark>
-<mark data-n="3">Every claim has a source. No source, no claim.</mark>
-
-Work so far: manufacturing, life sciences, automation.
-Side quest: robots.`
-  },
   talks: {
     chip: 'Have you given talks?',
     drawer: 'build',
@@ -153,7 +137,7 @@ Edge ML. Wearable feasibility: sensor processing, model evals, export formats, e
 <mark data-n="3">github.com/abe75ch</mark>`
   }
 };
-const order = ['hire', 'build', 'talks', 'demo', 'evals', 'cloud', 'mlops', 'science', 'vision', 'explore', 'contact'];
+const order = ['build', 'talks', 'demo', 'evals', 'cloud', 'mlops', 'science', 'vision', 'explore', 'contact'];
 // One drawer per source note, in the figure's order (two questions can share a note).
 const drawers = ['build', 'demo', 'evals', 'vision', 'cloud', 'science', 'mlops', 'explore', 'contact'];
 const fallback = {
