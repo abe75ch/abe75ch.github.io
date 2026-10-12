@@ -11,12 +11,13 @@
   <meta property="og:title" content="AgentOps: the next layer after MLOps">
   <meta property="og:description" content="Managing, deploying and monitoring AI systems when the thing you ship is a process, not a model.">
   <meta property="og:url" content="https://abe75ch.github.io/talks/agentops-pydata-lausanne.html">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://abe75ch.github.io/assets/pydata-talk-1120.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/fonts.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
-  <link rel="stylesheet" href="../style.css?v=20261012e">
+  <link rel="stylesheet" href="../style.css?v=20261012f">
 </head>
 <body class="sub">
 <a class="skip" href="#main">Skip to content</a>
@@ -32,7 +33,8 @@
   <p class="kicker mono">Talk · PyData Lausanne · 24 September 2026</p>
   <h1 class="case-title">AgentOps: the next layer after MLOps</h1>
   <p class="case-lede">Managing, deploying and monitoring AI systems when the thing you ship is a process, not a model.</p>
-  <div class="prose"><p class="aside"><a href="https://www.meetup.com/pydata-lausanne/events/316480251/" target="_blank" rel="noopener noreferrer">Event page on Meetup ↗</a> · Slides on request: <a href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a></p>
+  <div class="prose"><figure class="talk-photo"><img src="../assets/pydata-talk-1120.jpg" srcset="../assets/pydata-talk-640.jpg 640w, ../assets/pydata-talk-1120.jpg 1120w" sizes="(max-width: 760px) 100vw, 46rem" width="1120" height="840" alt="Andy Bermond speaking at PyData Lausanne, standing at a lectern next to a screen showing the closing slide: Key takeaway, build a system that you can control." fetchpriority="high"><figcaption>PyData Lausanne, 24 September 2026. The closing slide.</figcaption></figure>
+<p class="aside"><a href="https://www.meetup.com/pydata-lausanne/events/316480251/" target="_blank" rel="noopener noreferrer">Event page on Meetup ↗</a> · Slides on request: <a href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a></p>
 <h2>The abstract</h2>
 <p>LangChain's 2026 State of Agent Engineering survey put 57% of respondents with agents in production, 89% with observability in place, and only 52% running evals. Quality was the top barrier, named by nearly a third. Tracing has become table stakes; knowing whether the thing is any good has not. That gap is the interesting part.</p>
 <p>The term AgentOps was coined in a 2024 paper out of CSIRO's Data61. Its argument: existing tooling mostly tracks LLM-specific metrics and prompt management, with little support for the artifacts that actually define an agent: its goals, its plans, its tools.</p>
@@ -43,6 +45,14 @@
 <li>What does a release look like when behaviour changes without the artifact changing?</li>
 <li>What do you monitor when there is no accuracy number?</li>
 <li>What does a rollback mean when the failure is a loop of tool calls rather than a bad prediction?</li>
+</ul>
+<h2>The closing slide: what to do on Monday</h2>
+<p>Key takeaway: build a system you can control. Four things to start with:</p>
+<ul>
+<li>Trace one real request end to end.</li>
+<li>Write down what success means, including “no train” and “ask a human”.</li>
+<li>Every production failure becomes a permanent test, the same day.</li>
+<li>Budgets on steps, time and money, with approval before risky actions.</li>
 </ul>
 <p>The two notes on this site come from the same line of thinking: <a href="../notes/tool-calls-ok-is-not-job-done.html">Tool calls OK is not the job done</a> and <a href="../notes/missing-evidence-stays-missing.html">Missing evidence stays missing</a>.</p></div>
 </article>

@@ -188,6 +188,9 @@ button { cursor: pointer; }
 .flow li { font-family: var(--font-mono); font-size: var(--text-xs); padding: var(--space-2xs) var(--space-xs); border: 1px solid var(--color-rule); color: var(--color-ink); }
 .flow li + li::before { content: "→ "; color: var(--color-marker); }
 .aside { font-size: var(--text-xs); margin-top: var(--space-xs); }
+.talk-photo { margin: var(--space-lg) 0 var(--space-md); }
+.talk-photo img { display: block; width: 100%; height: auto; }
+.talk-photo figcaption { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-2); margin-top: var(--space-2xs); }
 .limits { margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-ink-2); }
 code { font-family: var(--font-mono); font-size: 0.9em; color: var(--color-marker); }
 @media (max-width: 760px) {
