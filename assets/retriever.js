@@ -837,6 +837,8 @@ const TAU = { x: 0.26, y: 0.17, z: 0.14, o: 0.18, lift: 0.2, gauge: 0.35 };
 const NEAR = { x: 1, y: 0.6, z: 0.6, o: 0.8, lift: 0.8, gauge: 0.08, reveal: 0.001 };
 let card = { cited: 0, gaps: 0 }, steps = [], step = null, frame = 0, last = 0, visible = false;
 
+// Readout words; a translated page sets window.RETRIEVER_TEXT before this script runs.
+const TXT = Object.assign({ back: "putting it back", find: "looking for ", hook: "hooking ", pull: "pulling ", cited: " cited", gap: " · 1 gap", search: "looking…", none: "no source · 0 cited" }, window.RETRIEVER_TEXT);
 const say = (text) => { if (readout.textContent !== text) readout.textContent = text; };
 function setActive(i) {
   svgEl.querySelectorAll("[data-front],[data-pull]").forEach((el) => {
@@ -864,25 +866,25 @@ function closeSteps() {
   const s = slot(st.i);
   const undock = [{ set: { z: s.pz + 5 } }, { set: { y: W.homeY }, after: () => setActive(null) }];
   if (st.o < 0.5 && tgt.o < 0.5) return [{ set: { lift: 0, reveal: 0 } }, ...undock];
-  return [{ set: { lift: 0, reveal: 0 }, say: "putting it back" }, { set: { o: 0, y: W.dockY } }, ...undock];
+  return [{ set: { lift: 0, reveal: 0 }, say: TXT.back }, { set: { o: 0, y: W.dockY } }, ...undock];
 }
 function openSteps(i, file, next) {
   const s = slot(i);
   return [
-    { set: { x: mastX(s.cx), z: s.pz + 5, gauge: 0 }, say: "looking for " + file },
+    { set: { x: mastX(s.cx), z: s.pz + 5, gauge: 0 }, say: TXT.find + file },
     { set: { y: W.dockY }, before: () => { card = next; setActive(i); } },
-    { set: { z: s.pz }, say: "hooking " + file },
-    { set: { o: W.open, y: W.dockY + W.open }, say: "pulling " + file },
+    { set: { z: s.pz }, say: TXT.hook + file },
+    { set: { o: W.open, y: W.dockY + W.open }, say: TXT.pull + file },
     { set: { lift: W.lift } },
-    { set: { reveal: 1, gauge: next.cited }, say: file + " · " + next.cited + " cited" + (next.gaps ? " · 1 gap" : "") },
+    { set: { reveal: 1, gauge: next.cited }, say: file + " · " + next.cited + TXT.cited + (next.gaps ? TXT.gap : "") },
   ];
 }
 function sweepSteps() {
   const z = slot(3).pz + 5;
   return [
-    { set: { x: mastX(slot(0).cx), z, gauge: 0 }, say: "looking…" },
+    { set: { x: mastX(slot(0).cx), z, gauge: 0 }, say: TXT.search },
     { set: { x: mastX(slot(2).cx) } },
-    { set: { x: mastX(slot(1).cx) }, say: "no source · 0 cited" },
+    { set: { x: mastX(slot(1).cx) }, say: TXT.none },
   ];
 }
 

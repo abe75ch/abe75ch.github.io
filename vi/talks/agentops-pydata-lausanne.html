@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentOps: tầng tiếp theo sau MLOps — Andy Bermond</title>
+  <meta name="description" content="Quản lý, triển khai và giám sát hệ thống AI khi thứ bạn đưa vào vận hành là một tiến trình, không phải một mô hình.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/vi/talks/agentops-pydata-lausanne.html">
+  <link rel="alternate" hreflang="en" href="https://abe75ch.github.io/talks/agentops-pydata-lausanne.html">
+  <link rel="alternate" hreflang="vi" href="https://abe75ch.github.io/vi/talks/agentops-pydata-lausanne.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AgentOps: tầng tiếp theo sau MLOps">
+  <meta property="og:description" content="Quản lý, triển khai và giám sát hệ thống AI khi thứ bạn đưa vào vận hành là một tiến trình, không phải một mô hình.">
+  <meta property="og:url" content="https://abe75ch.github.io/vi/talks/agentops-pydata-lausanne.html">
+  <meta property="og:image" content="https://abe75ch.github.io/assets/pydata-talk-1120.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/archivo-700-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts.css?v=20261012g">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../../style.css?v=20261012g">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Dự án</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+    <a class="lang" href="../../talks/agentops-pydata-lausanne.html" hreflang="en" lang="en">EN<span class="vh"> · English</span></a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="note">
+  <p class="kicker mono">Bài nói · PyData Lausanne · 24 tháng 9 năm 2026</p>
+  <h1 class="case-title">AgentOps: tầng tiếp theo sau MLOps</h1>
+  <p class="case-lede">Quản lý, triển khai và giám sát hệ thống AI khi thứ bạn đưa vào vận hành là một tiến trình, không phải một mô hình.</p>
+  <div class="prose"><figure class="talk-photo"><img src="../../assets/pydata-talk-1120.jpg" srcset="../../assets/pydata-talk-640.jpg 640w, ../../assets/pydata-talk-1120.jpg 1120w" sizes="(max-width: 760px) 100vw, 46rem" width="1120" height="840" alt="Andy Bermond trình bày tại PyData Lausanne, đứng ở bục cạnh màn hình chiếu slide kết thúc: Key takeaway, build a system that you can control (điều quan trọng nhất: hãy xây dựng một hệ thống bạn có thể kiểm soát)." fetchpriority="high"><figcaption>PyData Lausanne, 24 tháng 9 năm 2026. Slide kết thúc.</figcaption></figure>
+<p class="aside"><a href="https://www.meetup.com/pydata-lausanne/events/316480251/" target="_blank" rel="noopener noreferrer">Trang sự kiện trên Meetup ↗</a> · Bài nói bằng tiếng Anh. Slide gửi theo yêu cầu: <a href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a></p>
+<h2>Tóm tắt</h2>
+<p>Khảo sát State of Agent Engineering 2026 của LangChain cho thấy 57% người trả lời đã có agent trong production, 89% đã có observability, nhưng chỉ 52% chạy eval. Chất lượng là rào cản lớn nhất, được gần một phần ba người trả lời nhắc đến. Tracing đã trở thành điều hiển nhiên; còn biết hệ thống có thực sự tốt hay không thì chưa. Khoảng trống đó mới là điều thú vị.</p>
+<p>Thuật ngữ AgentOps xuất hiện trong một bài báo năm 2024 của Data61 thuộc CSIRO. Lập luận của họ: công cụ hiện có chủ yếu theo dõi các chỉ số riêng của LLM và quản lý prompt, rất ít hỗ trợ cho những thứ thực sự định nghĩa một agent: mục tiêu, kế hoạch và tool của nó.</p>
+<p>MLOps ra đời từ một nhận xét tương tự: mô hình chưa bao giờ là phần khó, hệ thống xung quanh mới là phần khó. Agent nhắc lại điều đó, còn rõ hơn. Mô hình là một hàm: bạn đánh phiên bản, kiểm thử, rollback. Agent là một tiến trình. Nó giữ trạng thái, gọi tool, tiêu tiền, thử lại, và đôi khi quyết định những điều không ai chỉ định.</p>
+<h2>Những câu hỏi bài nói đi qua</h2>
+<ul>
+<li>Đơn vị triển khai bây giờ là gì?</li>
+<li>Một lần release trông như thế nào khi hành vi thay đổi mà artifact không đổi?</li>
+<li>Giám sát cái gì khi không có con số độ chính xác?</li>
+<li>Rollback có nghĩa là gì khi lỗi là một vòng lặp gọi tool chứ không phải một dự đoán sai?</li>
+</ul>
+<h2>Slide kết thúc: việc cần làm vào thứ Hai</h2>
+<p>Điều quan trọng nhất: hãy xây dựng một hệ thống bạn có thể kiểm soát. Bốn việc để bắt đầu:</p>
+<ul>
+<li>Theo dõi trọn vẹn một request thật từ đầu đến cuối.</li>
+<li>Viết ra thế nào là thành công, kể cả “không có tàu” và “hỏi một người thật”.</li>
+<li>Mỗi lỗi trong production trở thành một test cố định, ngay trong ngày.</li>
+<li>Đặt ngân sách cho số bước, thời gian và chi phí, và cần phê duyệt trước các hành động rủi ro.</li>
+</ul>
+<p>Hai ghi chú trên trang này đến từ cùng mạch suy nghĩ: <a href="../notes/tool-calls-ok-is-not-job-done.html">Gọi tool đúng chưa chắc đã xong việc</a> và <a href="../notes/missing-evidence-stays-missing.html">Thiếu bằng chứng thì nói là thiếu</a>.</p></div>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Liên hệ</h2>
+  <p>Có câu hỏi về agent, MLOps hay bất cứ điều gì trên trang này? Email là cách dễ nhất để liên lạc với tôi.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Về trang chủ</a>
+</footer>
+</body>
+</html>

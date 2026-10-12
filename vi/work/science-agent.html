@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đưa một science agent vào vận hành để mọi người có thể kiểm chứng — Andy Bermond</title>
+  <meta name="description" content="Một trợ lý nghiên cứu do cả nhóm xây dựng phải tách biệt điều nguồn tài liệu cho thấy và điều mô hình gợi ý. Việc của tôi là phát hành và vận hành nó một cách an toàn.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/vi/work/science-agent.html">
+  <link rel="alternate" hreflang="en" href="https://abe75ch.github.io/work/science-agent.html">
+  <link rel="alternate" hreflang="vi" href="https://abe75ch.github.io/vi/work/science-agent.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Đưa một science agent vào vận hành để mọi người có thể kiểm chứng">
+  <meta property="og:description" content="Một trợ lý nghiên cứu do cả nhóm xây dựng phải tách biệt điều nguồn tài liệu cho thấy và điều mô hình gợi ý. Việc của tôi là phát hành và vận hành nó một cách an toàn.">
+  <meta property="og:url" content="https://abe75ch.github.io/vi/work/science-agent.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/archivo-700-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts.css?v=20261012g">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../../style.css?v=20261012g">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Dự án</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+    <a class="lang" href="../../work/science-agent.html" hreflang="en" lang="en">EN<span class="vh"> · English</span></a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="case">
+  <p class="kicker mono">Dự án · Khoa học sự sống · Agent Ops</p>
+  <h1 class="case-title">Đưa một science agent vào vận hành để mọi người có thể kiểm chứng</h1>
+  <p class="case-lede">Một trợ lý nghiên cứu do cả nhóm xây dựng phải tách biệt điều nguồn tài liệu cho thấy và điều mô hình gợi ý. Việc của tôi là phát hành và vận hành nó một cách an toàn.</p>
+  <dl class="summary"><div><dt>Vấn đề</dt><dd>Một trợ lý nghiên cứu trả lời câu hỏi và soạn giả thuyết cần quy trình release có kiểm soát và workload được bảo vệ trước khi có ai dựa vào nó.</dd></div><div><dt>Vai trò của tôi</dt><dd>Quy trình deployment và release, cấu hình bảo mật cho workload. Phần workflow khoa học và bản thân agent là công sức của cả nhóm.</dd></div><div><dt>Cách làm</dt><dd>Release truy vết được, quyền truy cập của workload được thiết lập ngay trong deployment, lỗi luôn hiện rõ.</dd></div><div><dt>Kết quả</dt><dd>Phần release và bảo mật đã hoàn thiện, có lịch sử dự án làm bằng chứng. Không có con số độ chính xác hay mức triển khai nào được công bố ở đây.</dd></div></dl>
+  <section class="block"><h2>Cách các phần kết nối với nhau</h2><ol class="flow" aria-label="Cách các phần kết nối với nhau"><li>Câu hỏi nghiên cứu</li><li>Điều phối workflow</li><li>Truy xuất bằng chứng</li><li>Bản nháp câu trả lời hoặc giả thuyết</li><li>Kiểm tra grounding</li><li>Kết quả kèm bằng chứng để con người xem xét</li></ol><p class="aside">Sơ đồ khái niệm, không phải kiến trúc production.</p></section><section class="block"><h2>Việc tôi đã làm</h2><ul><li>Xây dựng quy trình release để mọi thay đổi của ứng dụng đều xác định và truy vết được.</li><li>Cấu hình bảo mật workload như một phần của chính deployment.</li><li>Giữ cho chẩn đoán thực thi luôn hiện rõ, để một bước lỗi hiện ra là lỗi chứ không thành một câu trả lời tự tin.</li></ul></section><section class="block"><h2>Những quyết định đáng giải thích</h2><ul><li><strong>Giả thuyết và kết luận luôn tách biệt.</strong> Một ý tưởng đề xuất được ghi rõ là ý tưởng.</li><li><strong>Nguồn tham chiếu đi kèm câu trả lời</strong>, để người xem có thể mở bằng chứng.</li><li><strong>Grounding được đánh giá song song với hành vi của workflow</strong>, vì workflow có thể chạy thành công trong khi câu trả lời nói quá.</li></ul></section><section class="block"><h2>Bài học</h2><p>Người ta chỉ dùng một công cụ nghiên cứu mà họ tin, và kỷ luật release là một phần của niềm tin đó.</p></section>
+  <p class="limits"><strong>Những gì cố ý không có ở đây:</strong> tổ chức, mục tiêu nghiên cứu, dữ liệu, mã nguồn và chi tiết hạ tầng. Ví dụ là hư cấu và không chứa phát hiện khoa học nào.</p>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Liên hệ</h2>
+  <p>Có câu hỏi về agent, MLOps hay bất cứ điều gì trên trang này? Email là cách dễ nhất để liên lạc với tôi.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Về trang chủ</a>
+</footer>
+</body>
+</html>

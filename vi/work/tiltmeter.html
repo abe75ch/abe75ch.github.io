@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiltmeter: nhận ra mô hình bị trôi trước khi có gì hỏng — Andy Bermond</title>
+  <meta name="description" content="Một công cụ giám sát mã nguồn mở ghi lại xác suất mà mô hình trả về và cảnh báo khi chúng thay đổi. Mã nguồn và giới hạn của nó đều công khai.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/vi/work/tiltmeter.html">
+  <link rel="alternate" hreflang="en" href="https://abe75ch.github.io/work/tiltmeter.html">
+  <link rel="alternate" hreflang="vi" href="https://abe75ch.github.io/vi/work/tiltmeter.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tiltmeter: nhận ra mô hình bị trôi trước khi có gì hỏng">
+  <meta property="og:description" content="Một công cụ giám sát mã nguồn mở ghi lại xác suất mà mô hình trả về và cảnh báo khi chúng thay đổi. Mã nguồn và giới hạn của nó đều công khai.">
+  <meta property="og:url" content="https://abe75ch.github.io/vi/work/tiltmeter.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/archivo-700-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts.css?v=20261012g">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../../style.css?v=20261012g">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Dự án</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+    <a class="lang" href="../../work/tiltmeter.html" hreflang="en" lang="en">EN<span class="vh"> · English</span></a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="case">
+  <p class="kicker mono">Dự án · Mã nguồn mở · Độ tin cậy ML</p>
+  <h1 class="case-title">Tiltmeter: nhận ra mô hình bị trôi trước khi có gì hỏng</h1>
+  <p class="case-lede">Một công cụ giám sát mã nguồn mở ghi lại xác suất mà mô hình trả về và cảnh báo khi chúng thay đổi. Mã nguồn và giới hạn của nó đều công khai.</p>
+  <dl class="summary"><div><dt>Vấn đề</dt><dd>Mô hình có thể thay đổi hành vi mà không báo lỗi gì: một phiên bản mới, một câu hỏi bị sửa, hay dữ liệu đầu vào khác đi. Không có gì hỏng rõ ràng cho đến khi các quyết định bắt đầu sai.</dd></div><div><dt>Vai trò của tôi</dt><dd>Tác giả. Dựa trên kinh nghiệm MLOps trước đó: pipeline, nghiên cứu data drift và QA cho hệ thống ML.</dd></div><div><dt>Cách làm</dt><dd>Ghi lại xác suất theo từng câu hỏi, so sánh các cửa sổ gần đây, và chỉ cảnh báo khi có thay đổi thật, có ý nghĩa thống kê.</dd></div><div><dt>Kết quả</dt><dd>Trong mô phỏng, lưu lượng không đổi chỉ gây cảnh báo ở tối đa 0,3% số lần kiểm tra, trong khi một thay đổi thật ở mức vừa phải lần nào cũng bị phát hiện.</dd></div></dl>
+  <section class="block"><h2>Cách hoạt động</h2><p>Nó ghi lại xác suất mà mô hình trả về (Jev của TypeSafe) cho từng câu hỏi, không bao giờ lưu nội dung văn bản, và đưa ra bốn loại cảnh báo:</p><ul><li><strong>version</strong>: mô hình đứng sau alias đã thay đổi</li><li><strong>drift</strong>: phân bố câu trả lời lệch khỏi mức nền</li><li><strong>edge</strong>: quá nhiều câu trả lời nằm sát ngưỡng mà code dùng để ra quyết định</li><li><strong>accuracy</strong>: độ chính xác ước tính giảm, chỉ từ xác suất, không cần nhãn</li></ul></section><section class="block"><h2>Những quyết định đáng giải thích</h2><ul><li><strong>Cần effect size và p &lt; 0,001 trước khi cảnh báo.</strong> Một câu hỏi cần ít nhất 50 câu trả lời trong mỗi cửa sổ (mỗi cửa sổ tối đa 200), nên mẫu nhỏ không làm phiền ai.</li><li><strong>Không bao giờ lưu nội dung prompt.</strong> Chỉ lưu xác suất, tên mô hình và dấu vân tay của câu hỏi.</li><li><strong>Hai cách tích hợp.</strong> Tích hợp Pydantic AI, hoặc một proxy cục bộ cho mọi client. Proxy không bao giờ tự thêm API key và chỉ nhận JSON, nên chương trình khác không thể tiêu hạn mức của bạn qua nó.</li><li><strong>Phần lõi chỉ dùng thư viện chuẩn của Python.</strong></li></ul></section><section class="block"><h2>Giới hạn, nói thẳng</h2><ul><li>Ước tính độ chính xác giả định rằng xác suất vẫn được hiệu chỉnh tốt. Đây là cảnh báo sớm, không thay thế việc kiểm tra bằng dữ liệu có nhãn.</li><li>Mỗi cửa sổ được so với cửa sổ ngay trước nó, nên một sự trôi rất chậm và đều có thể nằm dưới ngưỡng. Cửa sổ tham chiếu cố định chưa được xây dựng.</li></ul></section><section class="block"><h2>Thử nghiệm</h2><p><a href="https://github.com/abe75ch/tiltmeter" target="_blank" rel="noopener noreferrer">github.com/abe75ch/tiltmeter ↗</a>. Lệnh <code>tiltmeter demo</code> mô phỏng việc đổi phiên bản và cho thấy các cảnh báo được kích hoạt.</p></section>
+  <p class="limits"><strong>Những gì cố ý không có ở đây:</strong> không có gì bị giấu. Dự án này là mã nguồn mở.</p>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Liên hệ</h2>
+  <p>Có câu hỏi về agent, MLOps hay bất cứ điều gì trên trang này? Email là cách dễ nhất để liên lạc với tôi.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Về trang chủ</a>
+</footer>
+</body>
+</html>

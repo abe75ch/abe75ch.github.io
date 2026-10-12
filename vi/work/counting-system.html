@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Từ ảnh chụp đèn flash đến con số đếm — Andy Bermond</title>
+  <meta name="description" content="Đếm các linh kiện đồng hồ nhỏ từ ảnh chụp dưới đèn flash, cùng backend, bảo mật và hạ tầng cloud giúp hệ thống dùng được.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/vi/work/counting-system.html">
+  <link rel="alternate" hreflang="en" href="https://abe75ch.github.io/work/counting-system.html">
+  <link rel="alternate" hreflang="vi" href="https://abe75ch.github.io/vi/work/counting-system.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Từ ảnh chụp đèn flash đến con số đếm">
+  <meta property="og:description" content="Đếm các linh kiện đồng hồ nhỏ từ ảnh chụp dưới đèn flash, cùng backend, bảo mật và hạ tầng cloud giúp hệ thống dùng được.">
+  <meta property="og:url" content="https://abe75ch.github.io/vi/work/counting-system.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/archivo-700-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts.css?v=20261012g">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../../style.css?v=20261012g">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Dự án</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+    <a class="lang" href="../../work/counting-system.html" hreflang="en" lang="en">EN<span class="vh"> · English</span></a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="case">
+  <p class="kicker mono">Dự án · Sản xuất · Computer vision</p>
+  <h1 class="case-title">Từ ảnh chụp đèn flash đến con số đếm</h1>
+  <p class="case-lede">Đếm các linh kiện đồng hồ nhỏ từ ảnh chụp dưới đèn flash, cùng backend, bảo mật và hạ tầng cloud giúp hệ thống dùng được.</p>
+  <dl class="summary"><div><dt>Vấn đề</dt><dd>Một nhà sản xuất đồng hồ cần đếm nhiều loại linh kiện nhỏ được chụp dưới ánh đèn flash.</dd></div><div><dt>Vai trò của tôi</dt><dd>Thuật toán đếm, backend ứng dụng, lớp bảo mật, kiến trúc deployment và pipeline CI/CD.</dd></div><div><dt>Cách làm</dt><dd>Một người phụ trách toàn bộ, từ ảnh đến API, trên GCP phía sau lớp API management.</dd></div><div><dt>Kết quả</dt><dd>Đếm nhanh hơn và chính xác hơn, theo phản hồi của người dùng. Kiến trúc được thiết kế để mở rộng từ vài máy lên hàng nghìn máy; đó là mục tiêu thiết kế, không phải số máy đã đo.</dd></div></dl>
+  <section class="block"><h2>Cách các phần kết nối với nhau</h2><ol class="flow" aria-label="Cách các phần kết nối với nhau"><li>Chụp ảnh flash</li><li>Thuật toán đếm</li><li>Backend ứng dụng</li><li>Lớp bảo mật và API management</li><li>GCP</li><li>CI/CD cho mỗi lần release</li></ol></section><section class="block"><h2>Việc tôi đã làm</h2><ul><li>Viết thuật toán đếm cho nhiều loại linh kiện.</li><li>Xây dựng backend phục vụ thuật toán và lớp bảo mật phía trước.</li><li>Thiết kế kiến trúc deployment trên GCP, với API management là điểm vào.</li><li>Thiết lập CI/CD để release lặp lại được.</li></ul></section><section class="block"><h2>Những quyết định đáng giải thích</h2><ul><li><strong>Thuật toán và hạ tầng do cùng một người phụ trách.</strong> Thay đổi về mô hình và cách phục vụ nó không phải chờ bàn giao.</li><li><strong>Thiết kế cho nhiều máy ngay từ đầu.</strong> Thiết kế GCP và API management nhắm tới việc mở rộng từ vài máy lên hàng nghìn máy, nên thêm trạm không cần thiết kế lại.</li></ul></section><section class="block"><h2>Bài học</h2><p>Thuật toán chỉ là một nửa. Người dùng để ý việc con số có xuất hiện nhanh, lần nào cũng vậy, hay không.</p></section>
+  <p class="limits"><strong>Những gì cố ý không có ở đây:</strong> tên khách hàng, hình ảnh, mã nguồn, số liệu độ chính xác và chi tiết hạ tầng. Có thể trao đổi về số liệu trong một cuộc trò chuyện mà chúng được phép chia sẻ.</p>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Liên hệ</h2>
+  <p>Có câu hỏi về agent, MLOps hay bất cứ điều gì trên trang này? Email là cách dễ nhất để liên lạc với tôi.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Về trang chủ</a>
+</footer>
+</body>
+</html>

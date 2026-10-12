@@ -1,6 +1,7 @@
 'use strict';
 // Scripted "agent": every answer comes from one source note; [n] cites <mark data-n="n"> in that note.
-const kb = {
+// A translated page loads its own notes first (assets/kb-vi.js sets window.KB, FALLBACK, CITE).
+const kb = window.KB || {
   talks: {
     chip: 'Have you given talks?',
     drawer: 'build',
@@ -140,7 +141,7 @@ Edge ML. Wearable feasibility: sensor processing, model evals, export formats, e
 const order = ['build', 'talks', 'demo', 'evals', 'cloud', 'mlops', 'science', 'vision', 'explore', 'contact'];
 // One drawer per source note, in the figure's order (two questions can share a note).
 const drawers = ['build', 'demo', 'evals', 'vision', 'cloud', 'science', 'mlops', 'explore', 'contact'];
-const fallback = {
+const fallback = window.FALLBACK || {
   answer: 'Nothing in my notes about that, so I’ll pass rather than make something up. Try one of these.',
   file: 'no source found',
   source: '<span class="source-empty">No drawer matched. Missing evidence stays missing.</span>'
@@ -155,12 +156,14 @@ const chipsEl = document.querySelector('.chips');
 let sweepTimer;
 
 const WHOLE = new Set(['life', 'data', 'mail', 'next', 'talk', 'role']);
+// Accents folded so "danh gia" finds "đánh giá".
+const fold = (s) => s.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/g, 'd');
 function match(text) {
-  const t = text.toLowerCase();
+  const t = fold(text);
   let best = null, score = 0;
   for (const id of order) {
-    // Short or ambiguous keys must be whole words ("ci" ≠ "decision", "data" ≠ "database"); the rest may be stems ("eval" → "evaluation").
-    const s = kb[id].keys.filter(k => new RegExp('\\b' + k + (k.length <= 3 || WHOLE.has(k) ? '\\b' : '')).test(t)).length;
+    // Short, ambiguous, multi-word or accented (Vietnamese) keys must be whole words ("ci" ≠ "decision", "trộn" ≠ "trong"); the rest may be stems ("eval" → "evaluation").
+    const s = kb[id].keys.filter(k => new RegExp('(?<![\\p{L}\\p{N}])' + fold(k) + (k.length <= 3 || WHOLE.has(k) || /[^a-z]/.test(k) ? '(?![\\p{L}\\p{N}])' : ''), 'u').test(t)).length;
     if (s > score) { best = id; score = s; }
   }
   return best;
@@ -169,7 +172,7 @@ function match(text) {
 // Wrap each word (outside tags) in a span so it can fade in; [n] becomes a citation link.
 function renderAnswer(html) {
   let i = 0;
-  const withCites = html.replace(/\[(\d)\]/g, (_, n) => `<a class="cite" href="#src-${n}" data-n="${n}" aria-label="source ${n}">${n}</a>`);
+  const withCites = html.replace(/\[(\d)\]/g, (_, n) => `<a class="cite" href="#src-${n}" data-n="${n}" aria-label="${window.CITE || 'source'} ${n}">${n}</a>`);
   aEl.innerHTML = withCites.replace(/(<[^>]+>)|([^<\s]+)/g, (m, tag, word) => tag ? tag : `<span class="w" style="--i:${i++}">${word}</span>`);
   return i;
 }

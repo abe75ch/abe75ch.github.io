@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gọi tool đúng chưa chắc đã xong việc — Andy Bermond</title>
+  <meta name="description" content="Agent có thể dùng mọi tool đúng cách mà vẫn không giúp được người hỏi. Hãy kiểm tra kết quả trước.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/vi/notes/tool-calls-ok-is-not-job-done.html">
+  <link rel="alternate" hreflang="en" href="https://abe75ch.github.io/notes/tool-calls-ok-is-not-job-done.html">
+  <link rel="alternate" hreflang="vi" href="https://abe75ch.github.io/vi/notes/tool-calls-ok-is-not-job-done.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gọi tool đúng chưa chắc đã xong việc">
+  <meta property="og:description" content="Agent có thể dùng mọi tool đúng cách mà vẫn không giúp được người hỏi. Hãy kiểm tra kết quả trước.">
+  <meta property="og:url" content="https://abe75ch.github.io/vi/notes/tool-calls-ok-is-not-job-done.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/archivo-700-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts.css?v=20261012g">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../../style.css?v=20261012g">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Dự án</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+    <a class="lang" href="../../notes/tool-calls-ok-is-not-job-done.html" hreflang="en" lang="en">EN<span class="vh"> · English</span></a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="note">
+  <p class="kicker mono">Ghi chú · Đánh giá agent</p>
+  <h1 class="case-title">Gọi tool đúng chưa chắc đã xong việc</h1>
+  <p class="case-lede">Agent có thể dùng mọi tool đúng cách mà vẫn không giúp được người hỏi. Hãy kiểm tra kết quả trước.</p>
+  <div class="prose"><p>Hầu hết việc đánh giá agent bắt đầu từ trace: nó có gọi đúng tool, với tham số hợp lệ, theo thứ tự hợp lý không? Điều đó cần thiết, nhưng chưa đủ.</p>
+<p>Lấy ví dụ một demo lập kế hoạch hành trình. Ai đó muốn đi một chuyến tàu tối muộn. Agent tìm kiếm, chọn một chuyến và đặt vé. Mọi lần gọi tool đều hợp lệ. Nhưng vé được đặt muộn hơn vài tiếng so với giờ họ yêu cầu. Theo trace thì thành công. Với người dùng thì thất bại.</p>
+<h2>So kết quả với yêu cầu</h2>
+<p>Vì vậy trong công việc đánh giá, tôi thêm một bước kiểm tra kết quả cuối cùng, bên cạnh kiểm tra việc dùng tool và grounding. Với chuyến tàu, bộ kiểm tra so giờ đã đặt với giờ được yêu cầu. Câu hỏi luôn giống nhau: điều người dùng muốn có thực sự xảy ra không?</p>
+<h2>Sau đó tìm chỗ hỏng</h2>
+<ul>
+<li><strong>Kiểm tra tất định</strong> ở mọi chỗ có thể tính ra đáp án: giờ, tổng số, ID, định dạng.</li>
+<li><strong>Bộ dữ liệu đánh giá</strong> gồm những yêu cầu quan trọng, kể cả những trường hợp khó.</li>
+<li><strong>Xem lại trace</strong> để biết bước nào sai.</li>
+<li><strong>Quality gate gọi tên hành vi lỗi.</strong> “Đặt sai giờ khởi hành” cho bạn biết cần sửa gì. “Eval failed” thì không.</li>
+</ul>
+<p>Dịch vụ chạy ổn, lần gọi tool hợp lệ và kết quả đúng là ba khẳng định khác nhau. Hãy kiểm tra cả ba.</p></div>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Liên hệ</h2>
+  <p>Có câu hỏi về agent, MLOps hay bất cứ điều gì trên trang này? Email là cách dễ nhất để liên lạc với tôi.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Về trang chủ</a>
+</footer>
+</body>
+</html>
