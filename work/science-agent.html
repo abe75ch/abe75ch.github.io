@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shipping a science agent people can check — Andy Bermond</title>
+  <meta name="description" content="A team-built research assistant had to separate what a source shows from what a model suggests. My job was to get it released and running safely.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/work/science-agent.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Shipping a science agent people can check">
+  <meta property="og:description" content="A team-built research assistant had to separate what a source shows from what a model suggests. My job was to get it released and running safely.">
+  <meta property="og:url" content="https://abe75ch.github.io/work/science-agent.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Work</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="case">
+  <p class="kicker mono">Case study · Life sciences · Agent Ops</p>
+  <h1 class="case-title">Shipping a science agent people can check</h1>
+  <p class="case-lede">A team-built research assistant had to separate what a source shows from what a model suggests. My job was to get it released and running safely.</p>
+  <dl class="summary"><div><dt>Problem</dt><dd>A research assistant that answers questions and drafts hypotheses needs controlled releases and locked-down workloads before anyone relies on it.</dd></div><div><dt>My role</dt><dd>Deployment and release workflows, and workload security configuration. The scientific workflows and the agent itself were a team effort.</dd></div><div><dt>Approach</dt><dd>Traceable releases, workload permissions set as part of deployment, failures that stay visible.</dd></div><div><dt>Outcome</dt><dd>Release and security work in place, backed by the project history. No accuracy or rollout figures are claimed here.</dd></div></dl>
+  <section class="block"><h2>How it fits together</h2><ol class="flow" aria-label="How it fits together"><li>Research question</li><li>Workflow orchestration</li><li>Evidence retrieval</li><li>Answer or hypothesis draft</li><li>Grounding checks</li><li>Evidence-linked output for human review</li></ol><p class="aside">Conceptual view. Not the production topology.</p></section><section class="block"><h2>What I did</h2><ul><li>Built release workflows so every change to the application can be identified and traced back.</li><li>Configured workload security as part of the deployment itself.</li><li>Kept execution diagnostics visible, so a failed step shows up as a failure instead of a confident answer.</li></ul></section><section class="block"><h2>Decisions worth explaining</h2><ul><li><strong>Hypothesis and conclusion stay separate.</strong> A proposed idea is labelled as one.</li><li><strong>References travel with the answer</strong>, so a reviewer can open the evidence.</li><li><strong>Grounding is evaluated next to workflow behaviour</strong>, because a workflow can succeed while the answer overreaches.</li></ul></section><section class="block"><h2>Lesson</h2><p>People only use a research tool they trust, and release discipline is part of that trust.</p></section>
+  <p class="limits"><strong>What's not here, on purpose:</strong> the organisation, research target, datasets, code and infrastructure details. The example is fictional and carries no scientific finding.</p>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Building agents or ML for a factory or a lab?</h2>
+  <p>Tell me what you're trying to ship and where it's stuck. I'll reply with what I think it takes.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Back to the start</a>
+</footer>
+</body>
+</html>

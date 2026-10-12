@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentOps: the next layer after MLOps — Andy Bermond</title>
+  <meta name="description" content="Managing, deploying and monitoring AI systems when the thing you ship is a process, not a model.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/talks/agentops-pydata-lausanne.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AgentOps: the next layer after MLOps">
+  <meta property="og:description" content="Managing, deploying and monitoring AI systems when the thing you ship is a process, not a model.">
+  <meta property="og:url" content="https://abe75ch.github.io/talks/agentops-pydata-lausanne.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Work</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="note">
+  <p class="kicker mono">Talk · PyData Lausanne · 24 September 2026</p>
+  <h1 class="case-title">AgentOps: the next layer after MLOps</h1>
+  <p class="case-lede">Managing, deploying and monitoring AI systems when the thing you ship is a process, not a model.</p>
+  <div class="prose"><p class="aside"><a href="https://www.meetup.com/pydata-lausanne/events/316480251/" target="_blank" rel="noopener noreferrer">Event page on Meetup ↗</a> · Slides on request: <a href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a></p>
+<h2>The abstract</h2>
+<p>LangChain's 2026 State of Agent Engineering survey put 57% of respondents with agents in production, 89% with observability in place, and only 52% running evals. Quality was the top barrier, named by nearly a third. Tracing has become table stakes; knowing whether the thing is any good has not. That gap is the interesting part.</p>
+<p>The term AgentOps was coined in a 2024 paper out of CSIRO's Data61. Its argument: existing tooling mostly tracks LLM-specific metrics and prompt management, with little support for the artifacts that actually define an agent: its goals, its plans, its tools.</p>
+<p>MLOps grew out of a similar observation: the model was never the hard part, the system around it was. Agents make the point again, louder. A model is a function: you version it, test it, roll it back. An agent is a process. It holds state, calls tools, spends money, retries, and occasionally decides something nobody specified.</p>
+<h2>The questions it works through</h2>
+<ul>
+<li>What is the deployable unit now?</li>
+<li>What does a release look like when behaviour changes without the artifact changing?</li>
+<li>What do you monitor when there is no accuracy number?</li>
+<li>What does a rollback mean when the failure is a loop of tool calls rather than a bad prediction?</li>
+</ul>
+<p>The two notes on this site come from the same line of thinking: <a href="../notes/tool-calls-ok-is-not-job-done.html">Tool calls OK is not the job done</a> and <a href="../notes/missing-evidence-stays-missing.html">Missing evidence stays missing</a>.</p></div>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Building agents or ML for a factory or a lab?</h2>
+  <p>Tell me what you're trying to ship and where it's stuck. I'll reply with what I think it takes.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Back to the start</a>
+</footer>
+</body>
+</html>

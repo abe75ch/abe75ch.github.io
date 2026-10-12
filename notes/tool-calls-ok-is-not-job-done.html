@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool calls OK is not the job done — Andy Bermond</title>
+  <meta name="description" content="An agent can use every tool correctly and still fail the person who asked. Check the outcome first.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/notes/tool-calls-ok-is-not-job-done.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tool calls OK is not the job done">
+  <meta property="og:description" content="An agent can use every tool correctly and still fail the person who asked. Check the outcome first.">
+  <meta property="og:url" content="https://abe75ch.github.io/notes/tool-calls-ok-is-not-job-done.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Work</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="note">
+  <p class="kicker mono">Note · Agent evaluation</p>
+  <h1 class="case-title">Tool calls OK is not the job done</h1>
+  <p class="case-lede">An agent can use every tool correctly and still fail the person who asked. Check the outcome first.</p>
+  <div class="prose"><p>Most agent evaluation starts with the trace: did it call the right tools, with valid arguments, in a sensible order? That's necessary, and it isn't enough.</p>
+<p>Take a journey-planning demo. Someone asks for a train late in the evening. The agent searches, picks a connection and books it. Every tool call is valid. The booking is several hours after the time they asked for. By the trace, a success. For the person, a failure.</p>
+<h2>Check the result against the request</h2>
+<p>So in my evaluation work I add a check on the final outcome, next to the checks on tool use and grounding. For the train, the verifier compares the booked time with the requested time. The question is always the same: did the thing the person wanted actually happen?</p>
+<h2>Then find where it broke</h2>
+<ul>
+<li><strong>Deterministic checks</strong> wherever the answer can be computed: times, totals, IDs, formats.</li>
+<li><strong>Evaluation datasets</strong> with the requests that matter, including the awkward ones.</li>
+<li><strong>Trace reviews</strong> to see which step went wrong.</li>
+<li><strong>Quality gates that name the failing behaviour.</strong> “Booked the wrong departure time” tells you what to fix. “Eval failed” doesn't.</li>
+</ul>
+<p>A healthy service, a valid tool call and a correct outcome are three different claims. Test all three.</p></div>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Building agents or ML for a factory or a lab?</h2>
+  <p>Tell me what you're trying to ship and where it's stuck. I'll reply with what I think it takes.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Back to the start</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiltmeter: noticing a model drift before anything breaks — Andy Bermond</title>
+  <meta name="description" content="An open-source monitor that records the probabilities a model returns and alerts when they move. The code and its limits are public.">
+  <meta name="theme-color" content="#081221">
+  <link rel="canonical" href="https://abe75ch.github.io/work/tiltmeter.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tiltmeter: noticing a model drift before anything breaks">
+  <meta property="og:description" content="An open-source monitor that records the probabilities a model returns and alerts when they move. The code and its limits are public.">
+  <meta property="og:url" content="https://abe75ch.github.io/work/tiltmeter.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="sub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top wrap">
+  <a class="home" href="../">Andy Bermond</a>
+  <nav aria-label="Site">
+    <a href="../#work">Work</a>
+    <a href="mailto:andy.bermond75@gmail.com">Email</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="case">
+  <p class="kicker mono">Case study · Open source · ML reliability</p>
+  <h1 class="case-title">Tiltmeter: noticing a model drift before anything breaks</h1>
+  <p class="case-lede">An open-source monitor that records the probabilities a model returns and alerts when they move. The code and its limits are public.</p>
+  <dl class="summary"><div><dt>Problem</dt><dd>A model can change behaviour without any error: a new version, an edited question, or different inputs. Nothing visibly breaks until decisions go wrong.</dd></div><div><dt>My role</dt><dd>Author. Built on earlier MLOps work: pipelines, data-drift research and QA of ML systems.</dd></div><div><dt>Approach</dt><dd>Record probabilities per question, compare recent windows, and alert only on a real, significant change.</dd></div><div><dt>Outcome</dt><dd>In simulation, unchanged traffic raised an alert in at most 0.3% of checks, while a moderate real shift was caught every time.</dd></div></dl>
+  <section class="block"><h2>How it works</h2><p>It records the probabilities a model returns (TypeSafe's Jev) for every question, never the text, and raises four alerts:</p><ul><li><strong>version</strong>: the model behind the alias changed</li><li><strong>drift</strong>: the spread of answers moved away from its baseline</li><li><strong>edge</strong>: too many answers sit right next to the threshold the code acts on</li><li><strong>accuracy</strong>: estimated accuracy fell, from the probabilities alone, with no labels</li></ul></section><section class="block"><h2>Decisions worth explaining</h2><ul><li><strong>Effect size and p &lt; 0.001 before alerting.</strong> A question needs at least 50 answers in each of two windows of up to 200, so small samples don't page anyone.</li><li><strong>Never stores prompt text.</strong> Only probabilities, model name and a question fingerprint.</li><li><strong>Two ways in.</strong> A Pydantic AI integration, or a local proxy for any client. The proxy never adds an API key and only accepts JSON, so other programs can't spend your quota through it.</li><li><strong>Core uses the Python standard library only.</strong></li></ul></section><section class="block"><h2>Limits, stated plainly</h2><ul><li>The accuracy estimate assumes the probabilities stay calibrated. It's an early warning, not a replacement for labelled checks.</li><li>Each window is compared with the one before it, so a very slow, steady slide can stay under the limits. A pinned reference window isn't built yet.</li></ul></section><section class="block"><h2>Try it</h2><p><a href="https://github.com/abe75ch/tiltmeter" target="_blank" rel="noopener noreferrer">github.com/abe75ch/tiltmeter ↗</a>. <code>tiltmeter demo</code> simulates a version switch and shows the alerts firing.</p></section>
+  <p class="limits"><strong>What's not here, on purpose:</strong> nothing hidden. This one is open source.</p>
+</article>
+</main>
+<section class="contact wrap" aria-labelledby="contact-title">
+  <h2 id="contact-title">Building agents or ML for a factory or a lab?</h2>
+  <p>Tell me what you're trying to ship and where it's stuck. I'll reply with what I think it takes.</p>
+  <div class="ctas">
+    <a class="cta" href="mailto:andy.bermond75@gmail.com">andy.bermond75@gmail.com</a>
+    <a class="cta-2" href="https://www.linkedin.com/in/andy-bermond" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="cta-2" href="https://github.com/abe75ch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</section>
+<footer class="foot wrap">
+  <span>© 2026 Andy Bermond</span>
+  <a href="../">Back to the start</a>
+</footer>
+</body>
+</html>
