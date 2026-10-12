@@ -20,7 +20,7 @@ Then open http://127.0.0.1:8765/.
 
 ## About the content
 
-- Clients and employers are deliberately not named.
+- Employers are shown as logos (trademarks of their owners). Clients are not named.
 - The demos use made-up examples. They don't reproduce any client document, data, code or result.
 - Numbers appear only where they can be checked. Tiltmeter's come from its [public repository](https://github.com/abe75ch/tiltmeter); a design target is labelled as one.
 
