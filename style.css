@@ -83,6 +83,10 @@ button { cursor: pointer; }
 .exp-before { margin-left: var(--space-lg); }
 .exp-note { font-size: var(--text-sm); color: var(--color-ink-2); margin-left: calc(-1 * var(--space-sm)); }
 .logo { display: block; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
+.logo-link { display: block; padding: var(--space-3xs) 0; }
+.logo-link .logo { transition: opacity var(--dur-short) var(--ease-out); }
+.logo-link:hover .logo, .logo-link:focus-visible .logo { opacity: 1; }
+.logo-link:focus-visible { outline: 2px solid var(--color-marker); outline-offset: 4px; }
 @media (max-width: 560px) { .exp-before { margin-left: 0; flex-basis: 100%; } .logo { max-width: 40vw; } }
 
 /* Ask — interview layout */
