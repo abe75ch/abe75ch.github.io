@@ -41,7 +41,7 @@ Dự án phụ: robot.`
   demo: {
     chip: 'Demo: chuyện gì xảy ra khi tài liệu không nói gì?',
     keys: ['demo', 'rag', 'retrieval', 'manufacturing', 'tài liệu', 'không nói', 'bồn', 'đổ đầy', 'trộn', 'xả', 'sản xuất', 'tri thức', 'truy xuất'],
-    answer: 'Nó nói thẳng điều đó thay vì đoán. Lấy ví dụ quy trình hư cấu này: đổ đầy, trộn, xả. Hỏi sau bước đổ đầy là gì, câu trả lời là “trộn”.[1] Hỏi trộn trong bao lâu thì tài liệu không nói,[2] nên câu trả lời nói rõ như vậy. Đó cũng là nguyên tắc của trợ lý tri thức sản xuất mà tôi đã góp phần đưa vào vận hành.',
+    answer: 'Nó nói thẳng điều đó thay vì đoán. Lấy ví dụ quy trình hư cấu này: đổ đầy, trộn, xả. Hỏi sau bước đổ đầy là gì, câu trả lời là “trộn”.[1] Hỏi trộn trong bao lâu thì tài liệu không nói,[2] nên câu trả lời nói rõ như vậy. Đó cũng là nguyên tắc của trợ lý tri thức sản xuất mà tôi đã dẫn dắt phần kỹ thuật.',
     file: 'training-procedure.txt · hư cấu',
     source: `Quy trình đào tạo (hư cấu cho demo này): trộn nước
 

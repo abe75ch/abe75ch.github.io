@@ -34,7 +34,7 @@ Side quest: robots.`
   demo: {
     chip: 'Demo: what happens when the document says nothing?',
     keys: ['vessel', 'says nothing', 'silent', 'fill', 'mix', 'drain', 'demo', 'manufacturing', 'explorer', 'knowledge', 'document', 'retrieval', 'rag'],
-    answer: 'It says so instead of guessing. Take this made-up procedure: fill, mix, drain. Ask what comes after filling and you get “mixing”.[1] Ask how long to mix and the document is silent,[2] so the answer says that. Same rule as in the manufacturing knowledge assistant I helped ship.',
+    answer: 'It says so instead of guessing. Take this made-up procedure: fill, mix, drain. Ask what comes after filling and you get “mixing”.[1] Ask how long to mix and the document is silent,[2] so the answer says that. Same rule as in the manufacturing knowledge assistant whose engineering I led.',
     file: 'training-procedure.txt · fictional',
     source: `Training procedure (made up for this demo): water mixing
 
